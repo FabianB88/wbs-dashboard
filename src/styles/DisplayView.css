@@ -76,3 +76,31 @@
   color: var(--han-mid-grey);
   font-size: 0.9rem;
 }
+
+/* WGI Totaalcijfer styling */
+.wgi-total-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, var(--han-light-grey) 0%, var(--han-white) 100%);
+}
+
+.wgi-total-title {
+  color: var(--han-dark-blue);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.wgi-total-value {
+  font-size: 8rem;
+  font-weight: 900;
+  color: var(--han-magenta);
+  line-height: 1;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.wgi-total-subtitle {
+  color: var(--han-text-dark);
+  font-size: 1.25rem;
+  font-weight: 500;
+}

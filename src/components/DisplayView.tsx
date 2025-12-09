@@ -1,7 +1,6 @@
 import { RoundScore, ValueLabels } from "../types";
 import { computeWGIForRound } from "../utils";
 import Timer from "./Timer";
-import WGIBarChart from "./WGIBarChart";
 import QRCodeDisplay from "./QRCodeDisplay";
 import "../styles/DisplayView.css";
 
@@ -20,7 +19,6 @@ export default function DisplayView({
   activeRound,
   maxRounds,
   roundScores,
-  valueLabels,
   realityCardTitle,
   realityCardContent,
   qrCodeUrl,
@@ -28,13 +26,16 @@ export default function DisplayView({
 }: DisplayViewProps) {
   const wgiValues = computeWGIForRound(roundScores, activeRound);
 
+  // Bereken totaal WGI (som van alle 3 waarden) - studenten zien alleen dit!
+  const totalWGI = wgiValues.value1 + wgiValues.value2 + wgiValues.value3;
+
   return (
     <div className="display-view">
       {/* Header */}
       <div className="display-header">
         <div className="display-header-content">
           <h1>Wereldburgerschap – Ronde {activeRound} van {maxRounds}</h1>
-          <div className="display-tagline">HAN • Slim • Schoon • Sociaal</div>
+          <div className="display-tagline">HAN University of Applied Sciences</div>
         </div>
       </div>
 
@@ -45,13 +46,11 @@ export default function DisplayView({
           <Timer initialSeconds={180} />
         </div>
 
-        {/* WGI Chart */}
-        <div className="display-section">
-          <WGIBarChart
-            values={wgiValues}
-            labels={valueLabels}
-            title="WereldGezondheidsIndex (WGI)"
-          />
+        {/* WGI - Alleen totaalcijfer */}
+        <div className="display-section wgi-total-section">
+          <h2 className="wgi-total-title">WereldGezondheidsIndex (WGI)</h2>
+          <div className="wgi-total-value">{totalWGI}</div>
+          <p className="wgi-total-subtitle">Gezamenlijke score van alle teams</p>
         </div>
 
         {/* Reality Card (optioneel) */}

@@ -11,7 +11,7 @@ export default function StartScreen({ onStart }: StartScreenProps) {
     <div className="start-screen">
       <div className="start-content">
         <h1 className="start-title">Wereldburgerschap Speldashboard</h1>
-        <p className="start-subtitle">HAN - Slim • Schoon • Sociaal</p>
+        <p className="start-subtitle">HAN University of Applied Sciences</p>
 
         <div className="start-question">
           <h2>Hoeveel teams spelen er mee?</h2>
