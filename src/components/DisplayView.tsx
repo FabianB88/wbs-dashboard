@@ -1,0 +1,82 @@
+import { RoundScore, ValueLabels } from "../types";
+import { computeWGIForRound } from "../utils";
+import Timer from "./Timer";
+import WGIBarChart from "./WGIBarChart";
+import QRCodeDisplay from "./QRCodeDisplay";
+import "../styles/DisplayView.css";
+
+interface DisplayViewProps {
+  activeRound: number;
+  maxRounds: number;
+  roundScores: RoundScore[];
+  valueLabels: ValueLabels;
+  realityCardTitle?: string;
+  realityCardContent?: string;
+  qrCodeUrl?: string;
+  onSwitchToTeacher: () => void;
+}
+
+export default function DisplayView({
+  activeRound,
+  maxRounds,
+  roundScores,
+  valueLabels,
+  realityCardTitle,
+  realityCardContent,
+  qrCodeUrl,
+  onSwitchToTeacher,
+}: DisplayViewProps) {
+  const wgiValues = computeWGIForRound(roundScores, activeRound);
+
+  return (
+    <div className="display-view">
+      {/* Header */}
+      <div className="display-header">
+        <div className="display-header-content">
+          <h1>Wereldburgerschap – Ronde {activeRound} van {maxRounds}</h1>
+          <div className="display-tagline">HAN • Slim • Schoon • Sociaal</div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="display-content">
+        {/* Timer */}
+        <div className="display-section">
+          <Timer initialSeconds={180} />
+        </div>
+
+        {/* WGI Chart */}
+        <div className="display-section">
+          <WGIBarChart
+            values={wgiValues}
+            labels={valueLabels}
+            title="WereldGezondheidsIndex (WGI)"
+          />
+        </div>
+
+        {/* Reality Card (optioneel) */}
+        {realityCardContent && (
+          <div className="display-section reality-card">
+            <h3>{realityCardTitle || "Reality Card"}</h3>
+            <p>{realityCardContent}</p>
+          </div>
+        )}
+
+        {/* QR Code (optioneel) */}
+        {qrCodeUrl && (
+          <div className="display-section qr-section">
+            <QRCodeDisplay url={qrCodeUrl} />
+          </div>
+        )}
+      </div>
+
+      {/* Footer met switch knop */}
+      <div className="display-footer">
+        <button onClick={onSwitchToTeacher} className="btn-secondary btn-large">
+          → Naar docentscherm
+        </button>
+        <p className="display-hint">Druk op Esc of gebruik de knop om terug te gaan</p>
+      </div>
+    </div>
+  );
+}

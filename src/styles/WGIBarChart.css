@@ -1,0 +1,57 @@
+.wgi-chart {
+  background: var(--han-white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wgi-title {
+  text-align: center;
+  color: var(--han-dark-blue);
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.wgi-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.wgi-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wgi-bar-label {
+  font-weight: 600;
+  color: var(--han-text-dark);
+  font-size: 1.1rem;
+}
+
+.wgi-bar-wrapper {
+  background: var(--han-light-grey);
+  border-radius: 8px;
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wgi-bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 1rem;
+  border-radius: 8px;
+  transition: width 0.5s ease;
+  min-width: 80px;
+}
+
+.wgi-bar-value {
+  color: var(--han-white);
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}

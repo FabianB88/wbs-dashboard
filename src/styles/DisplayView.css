@@ -1,0 +1,78 @@
+.display-view {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--han-white);
+}
+
+.display-header {
+  background: var(--han-dark-blue);
+  color: var(--han-white);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.display-header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.display-header h1 {
+  color: var(--han-white);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.display-tagline {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--han-magenta);
+}
+
+.display-content {
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.display-section {
+  background: var(--han-white);
+  border-radius: 8px;
+}
+
+.reality-card {
+  background: var(--han-light-grey);
+  padding: 2rem;
+  border-left: 4px solid var(--han-magenta);
+}
+
+.reality-card h3 {
+  color: var(--han-dark-blue);
+  margin-bottom: 1rem;
+}
+
+.reality-card p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.display-footer {
+  background: var(--han-light-grey);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.display-hint {
+  color: var(--han-mid-grey);
+  font-size: 0.9rem;
+}

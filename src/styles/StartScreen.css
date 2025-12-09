@@ -1,0 +1,57 @@
+.start-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--han-dark-blue) 0%, var(--han-magenta) 100%);
+}
+
+.start-content {
+  background: var(--han-white);
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+}
+
+.start-title {
+  color: var(--han-dark-blue);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.start-subtitle {
+  color: var(--han-magenta);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+.start-question {
+  margin-bottom: 2rem;
+}
+
+.start-question h2 {
+  color: var(--han-text-dark);
+  font-size: 1.75rem;
+}
+
+.team-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.team-button {
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  min-height: 80px;
+}
+
+.start-footer {
+  color: var(--han-mid-grey);
+  font-size: 0.9rem;
+}

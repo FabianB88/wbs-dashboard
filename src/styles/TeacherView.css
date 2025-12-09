@@ -1,0 +1,66 @@
+.teacher-view {
+  min-height: 100vh;
+  background: var(--han-light-grey);
+}
+
+.teacher-header {
+  background: var(--han-white);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.teacher-header h1 {
+  color: var(--han-dark-blue);
+  margin: 0;
+}
+
+.teacher-header-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.round-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.round-selector label {
+  font-weight: 600;
+  color: var(--han-text-dark);
+}
+
+.round-selector select {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.teacher-header-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.teacher-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.teacher-teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .teacher-teams-grid {
+    grid-template-columns: 1fr;
+  }
+}

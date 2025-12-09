@@ -1,0 +1,159 @@
+/* HAN Huisstijl Kleuren */
+:root {
+  --han-magenta: #E50055;     /* primaire HAN-magenta */
+  --han-dark-blue: #131A82;   /* donkerblauw */
+  --han-light-grey: #F5F5F5;
+  --han-mid-grey: #CCCCCC;
+  --han-text-dark: #222222;
+  --han-white: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--han-white);
+  color: var(--han-text-dark);
+  line-height: 1.6;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Algemene buttons */
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Primary button (HAN magenta) */
+.btn-primary {
+  background-color: var(--han-magenta);
+  color: var(--han-white);
+}
+
+.btn-primary:hover {
+  background-color: #c7004a;
+}
+
+/* Secondary button (donkerblauw) */
+.btn-secondary {
+  background-color: var(--han-dark-blue);
+  color: var(--han-white);
+}
+
+.btn-secondary:hover {
+  background-color: #0f1566;
+}
+
+/* Large button voor belangrijke acties */
+.btn-large {
+  font-size: 1.25rem;
+  padding: 1rem 2rem;
+  min-width: 120px;
+}
+
+/* Input fields */
+select, input {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 2px solid var(--han-mid-grey);
+  border-radius: 4px;
+  background-color: var(--han-white);
+}
+
+select:focus, input:focus {
+  outline: none;
+  border-color: var(--han-magenta);
+}
+
+/* Radio buttons styling */
+.radio-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--han-magenta);
+}
+
+/* Container styling */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Cards */
+.card {
+  background: var(--han-white);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+/* Typography */
+h1 {
+  font-size: 2.5rem;
+  color: var(--han-dark-blue);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--han-dark-blue);
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--han-text-dark);
+  margin-bottom: 0.5rem;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
