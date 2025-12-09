@@ -5,13 +5,14 @@ interface StartScreenProps {
 }
 
 export default function StartScreen({ onStart }: StartScreenProps) {
-  const teamOptions = [3, 4, 5, 6];
+  const teamOptions = [4, 5, 6];
 
   return (
     <div className="start-screen">
       <div className="start-content">
-        <h1 className="start-title">Wereldburgerschap Speldashboard</h1>
-        <p className="start-subtitle">HAN University of Applied Sciences</p>
+        <h1 className="start-title">Flip the Future</h1>
+        <p className="start-subtitle">Wereldburgerschap Speldashboard</p>
+        <p className="start-university">HAN University of Applied Sciences</p>
 
         <div className="start-question">
           <h2>Hoeveel teams spelen er mee?</h2>

@@ -23,9 +23,16 @@
 }
 
 .start-subtitle {
-  color: var(--han-magenta);
-  font-size: 1.25rem;
+  color: var(--han-text-dark);
+  font-size: 1.5rem;
   font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.start-university {
+  color: var(--han-magenta);
+  font-size: 1.1rem;
+  font-weight: 500;
   margin-bottom: 3rem;
 }
 

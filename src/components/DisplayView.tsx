@@ -32,7 +32,6 @@ export default function DisplayView({
   // Bepaal target score op basis van aantal teams (uit roundScores)
   const numTeams = new Set(roundScores.map(rs => rs.teamId)).size || 4; // fallback 4
   const targetScores: Record<number, number> = {
-    3: 63,
     4: 83,
     5: 103,
     6: 124,
@@ -52,7 +51,7 @@ export default function DisplayView({
       {/* Header */}
       <div className="display-header">
         <div className="display-header-content">
-          <h1>Wereldburgerschap – Ronde {activeRound} van {maxRounds}</h1>
+          <h1>Flip the Future – Ronde {activeRound} van {maxRounds}</h1>
           <div className="display-tagline">HAN University of Applied Sciences</div>
         </div>
       </div>
@@ -61,7 +60,7 @@ export default function DisplayView({
       <div className="display-content">
         {/* Timer */}
         <div className="display-section">
-          <Timer initialSeconds={180} />
+          <Timer initialSeconds={480} />
         </div>
 
         {/* WGI - Alleen totaalcijfer met groene balk */}
