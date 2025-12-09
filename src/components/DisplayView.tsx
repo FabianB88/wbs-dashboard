@@ -1,5 +1,4 @@
 import { RoundScore, ValueLabels } from "../types";
-import { computeWGIForRound } from "../utils";
 import Timer from "./Timer";
 import QRCodeDisplay from "./QRCodeDisplay";
 import "../styles/DisplayView.css";
@@ -24,10 +23,14 @@ export default function DisplayView({
   qrCodeUrl,
   onSwitchToTeacher,
 }: DisplayViewProps) {
-  const wgiValues = computeWGIForRound(roundScores, activeRound);
+  // Bereken CUMULATIEVE WGI: alle rondes tot en met activeRound
+  const cumulativeWGI = roundScores
+    .filter(rs => rs.round <= activeRound)
+    .reduce((sum, rs) => {
+      return sum + rs.values.value1 + rs.values.value2 + rs.values.value3;
+    }, 0);
 
-  // Bereken totaal WGI (som van alle 3 waarden) - studenten zien alleen dit!
-  const totalWGI = wgiValues.value1 + wgiValues.value2 + wgiValues.value3;
+  const totalWGI = cumulativeWGI;
 
   // Bepaal target score op basis van aantal teams (uit roundScores)
   const numTeams = new Set(roundScores.map(rs => rs.teamId)).size || 4; // fallback 4
