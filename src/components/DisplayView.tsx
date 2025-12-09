@@ -29,6 +29,24 @@ export default function DisplayView({
   // Bereken totaal WGI (som van alle 3 waarden) - studenten zien alleen dit!
   const totalWGI = wgiValues.value1 + wgiValues.value2 + wgiValues.value3;
 
+  // Bepaal target score op basis van aantal teams (uit roundScores)
+  const numTeams = new Set(roundScores.map(rs => rs.teamId)).size || 4; // fallback 4
+  const targetScores: Record<number, number> = {
+    3: 63,
+    4: 83,
+    5: 103,
+    6: 124,
+  };
+  const targetScore = targetScores[numTeams] || 83;
+
+  // Bereken percentage naar target (0-100%)
+  const percentage = Math.min((totalWGI / targetScore) * 100, 100);
+
+  // Bereken kleur: rood (0%) → groen (100%)
+  // HSL: rood=0, geel=60, groen=120
+  const hue = (percentage / 100) * 120; // 0 = rood, 120 = groen
+  const barColor = `hsl(${hue}, 80%, 45%)`;
+
   return (
     <div className="display-view">
       {/* Header */}
@@ -50,15 +68,19 @@ export default function DisplayView({
         <div className="display-section wgi-total-section">
           <h2 className="wgi-total-title">WereldGezondheidsIndex (WGI)</h2>
 
-          {/* Groene groei-balk */}
+          {/* Groei-balk met kleurverloop rood→groen */}
           <div className="wgi-bar-container">
             <div
               className="wgi-bar-fill"
-              style={{ width: `${Math.min(totalWGI * 2, 100)}%` }}
+              style={{
+                width: `${percentage}%`,
+                backgroundColor: barColor,
+              }}
             >
               <span className="wgi-bar-label">{totalWGI}</span>
             </div>
           </div>
+          <p className="wgi-target-info">Target: {targetScore} punten ({numTeams} teams)</p>
 
           <p className="wgi-total-subtitle">Gezamenlijke score van alle teams</p>
         </div>
