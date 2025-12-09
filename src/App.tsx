@@ -6,7 +6,7 @@ import StartScreen from "./components/StartScreen";
 import DisplayView from "./components/DisplayView";
 import TeacherView from "./components/TeacherView";
 
-const INITIAL_ROUNDS = 3;
+const INITIAL_ROUNDS = 6;
 
 function App() {
   const [viewMode, setViewMode] = useState<ViewMode>("start");
