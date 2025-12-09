@@ -46,10 +46,20 @@ export default function DisplayView({
           <Timer initialSeconds={180} />
         </div>
 
-        {/* WGI - Alleen totaalcijfer */}
+        {/* WGI - Alleen totaalcijfer met groene balk */}
         <div className="display-section wgi-total-section">
           <h2 className="wgi-total-title">WereldGezondheidsIndex (WGI)</h2>
-          <div className="wgi-total-value">{totalWGI}</div>
+
+          {/* Groene groei-balk */}
+          <div className="wgi-bar-container">
+            <div
+              className="wgi-bar-fill"
+              style={{ width: `${Math.min(totalWGI * 2, 100)}%` }}
+            >
+              <span className="wgi-bar-label">{totalWGI}</span>
+            </div>
+          </div>
+
           <p className="wgi-total-subtitle">Gezamenlijke score van alle teams</p>
         </div>
 
