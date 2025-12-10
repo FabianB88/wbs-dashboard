@@ -82,7 +82,9 @@ export default function TeamCard({
   );
 
   const getBarWidth = (value: number) => {
-    return (Math.abs(value) / maxValue) * 100;
+    // Negatieve waarden krijgen geen balk (of minimale balk om het getal te tonen)
+    if (value < 0) return 0;
+    return (value / maxValue) * 100;
   };
 
   const getBarColor = (key: ValueKey): string => {
@@ -170,15 +172,19 @@ export default function TeamCard({
               <div key={key} className="mini-chart-row">
                 <span className="mini-chart-label">{valueLabels[key]}</span>
                 <div className="mini-chart-bar-wrapper">
-                  <div
-                    className="mini-chart-bar"
-                    style={{
-                      width: `${getBarWidth(cumulativeValues[key])}%`,
-                      backgroundColor: getBarColor(key),
-                    }}
-                  >
-                    <span className="mini-chart-value">{cumulativeValues[key]}</span>
-                  </div>
+                  {cumulativeValues[key] >= 0 ? (
+                    <div
+                      className="mini-chart-bar"
+                      style={{
+                        width: `${getBarWidth(cumulativeValues[key])}%`,
+                        backgroundColor: getBarColor(key),
+                      }}
+                    >
+                      <span className="mini-chart-value">{cumulativeValues[key]}</span>
+                    </div>
+                  ) : (
+                    <span className="mini-chart-negative">{cumulativeValues[key]}</span>
+                  )}
                 </div>
               </div>
             ))}
